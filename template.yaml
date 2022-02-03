@@ -1,15 +1,19 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
-  sam-hello-py
+  sam-apigw-endpointtype-default
 
-  Sample SAM Template for sam-hello-py
+  Sample SAM Template for sam-apigw-endpointtype-default
 
 Globals:
   Function:
     Timeout: 3
   Api:
     OpenApiVersion: 3.0.3
+    # 明示したいならここを書き換えて切り替え。
+    # もちろんAWS::Serverless::Apiに書いてもOK
+    # EndpointConfiguration: REGIONAL
+    # EndpointConfiguration: EDGE
 
 Resources:
   HelloWorldFunction:

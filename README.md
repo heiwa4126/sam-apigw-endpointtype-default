@@ -1,9 +1,12 @@
-# sam-hello-py
+# sam-apigw-typedefault
 
-AWS SAMの動作チェック用のミニマムパッケージ。
-Python 3.8
+SAMのREST APIのエンドポイントタイプのデフォルト値が
+[DomainConfiguration - AWS Serverless Application Model](https://docs.aws.amazon.com/ja_jp/serverless-application-model/latest/developerguide/sam-property-api-domainconfiguration.html)
+だと `REGIONAL` となってるのだが、これがどうも怪しいのでテストしてみた。
 
-中身は"Hello world"を出すだけです。
+自分の今の環境だと デフォルトでは `EDGE` になるんだけど...
+
+Python 3.8。中身は"Hello world"を出すだけです。
 
 
 # デプロイ
@@ -13,7 +16,7 @@ sam build
 sam deploy --guided  # --guidedは最初の1回
 ```
 
-`sam deploy --guided` は
+`sam deploy --guided` は以下の
 
 ```
 HelloWorldFunction may not have authorization defined, Is this okay? [y/N]: y
@@ -22,25 +25,9 @@ HelloWorldFunction may not have authorization defined, Is this okay? [y/N]: y
 以外はデフォルトでいいです。
 
 
-## AWS Cloud Shellからのデプロイ
-
-`sam build` するのに python 3.8 が要るので、
-```sh
-sudo amazon-linux-extras install -y python3.8
-```
-
-で、python 3.8をインストールしてください。
-
-
-または
-「sam buildずみのプロジェクトフォルダーをコピーする」
-などで対処してください。
-
-
-
 # スタックの削除
 
 ```sh
-sam delete
+sam delete --no-prompts
 ```
 で消えます。
