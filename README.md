@@ -31,3 +31,16 @@ HelloWorldFunction may not have authorization defined, Is this okay? [y/N]: y
 sam delete --no-prompts
 ```
 で消えます。
+
+
+# パンチライン
+
+同じドキュメントの英語版
+[EndpointConfiguration - AWS Serverless Application Model](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-api-endpointconfiguration.html)
+では、デフォルト書いてない。
+
+[Choose an endpoint type to set up for an API Gateway API - Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-endpoint-types.html)
+では、デフォルトは `EDGE` と書かれている。
+
+EDGEのほうが費用高いと思われるので(要確認)
+REGIONALを明示したほうがいいかもしれない。
